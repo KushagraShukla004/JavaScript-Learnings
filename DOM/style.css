@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: white;
+  background-color: #2f2f2f;
+}
+
+h2,
+h3 {
+  margin: 30px;
+  font-size: 50px;
+  color: aquamarine;
+}
+
+input {
+  margin: 30px;
+  background-color: lightgreen;
+  font-size: 20px;
+}
+
+.container {
+  margin-top: 10px;
+  border: 2px solid aliceblue;
+  width: 20em;
+}
+
+h4,
+ul {
+  margin-top: 20px;
+  padding-left: 10px;
+  font-size: 20px;
+}
+
+ul {
+  padding-left: 50px;
+}
+
+.box {
+  margin-top: 20px;
+  height: 100px;
+  width: 200px;
+  border: 2px solid aliceblue;
+  background-color: aquamarine;
+  color: black;
+}
+
+.h1Class {
+  font-size: 50px;
+  margin-top: 10px;
+  color: red;
+}
+
+.newh1 {
+  margin-top: 10px;
+  font-size: 50px;
+  background-color: aqua;
+}
