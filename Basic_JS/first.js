@@ -22,6 +22,7 @@ let c = 10;
 let d = "10";
 console.log("c:", c, "d:", d);
 console.log("c == d:", c == d);
+console.log("c === d:", c === d); //false because Data Type is different
 
 //Conditional Statements
 
