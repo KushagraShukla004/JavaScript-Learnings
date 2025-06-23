@@ -45,3 +45,13 @@ let booleanIsLoggedIn = Boolean(isLoggedIn);
 
 // undefined & null => false
 // any number => true
+
+//####################################
+
+//All primitive DT are CALL BY Value i.e
+// Call by value means that a copy of the value is passed to a variable or function — not the original.
+// So, if you modify the value inside a function or assignment, it does not affect the original.
+
+// Non-primitive types are Call By Reference i.e
+// Opposite of Call by Value
+// Means if you change the copy, the original is also affected
