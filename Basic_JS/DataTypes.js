@@ -20,10 +20,10 @@
 // console.log(typeof undefined);
 
 // Type Conversion
-let score = true;
+let isTrue = true;
 let random = "100abc";
 
-let inNumber = Number(score); //100
+let inNumber = Number(isTrue); //100
 let randomNumber = Number(random);
 // console.log(typeof score); //string
 // console.log(typeof inNumber); //number
@@ -52,6 +52,30 @@ let booleanIsLoggedIn = Boolean(isLoggedIn);
 // Call by value means that a copy of the value is passed to a variable or function — not the original.
 // So, if you modify the value inside a function or assignment, it does not affect the original.
 
+// Primitive
+const score = 100;
+const score1 = 100.3;
+
+const isLoggedOut = false;
+const isNull = null;
+
+const id = Symbol("123");
+const id1 = Symbol("123");
+
+console.log(typeof id); //symbol
+
+console.log(id === id1); // false
+
 // Non-primitive types are Call By Reference i.e
 // Opposite of Call by Value
 // Means if you change the copy, the original is also affected
+
+const arr = ["A", "B", "C"];
+let obj = {
+  name: "Kush",
+  age: 24,
+};
+
+const myFunction = function () {
+  console.log("Hello");
+};
