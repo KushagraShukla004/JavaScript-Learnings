@@ -118,3 +118,44 @@ const newObject1 = {
 // console.log(obj3); // { '1': 'a', '2': 'b', '3': 'c', '4': 'd' }
 
 //###############################################################################################################
+
+//#################################### Object destructuring ####################################################
+
+const newObject2 = {
+  id: 123,
+  user_details: {
+    fullname: {
+      firstname: "Kush",
+      lastname: "shukla",
+    },
+    isActive: true,
+  },
+  posts: [
+    {
+      id: 1,
+      blogTitle: "First Title!",
+      blog: {
+        description: "lorem ipsum lorem ipsum",
+        images: ["link", "link2"],
+      },
+    },
+    {
+      id: 2,
+      blogTitle: "Second Title!",
+      blog: {
+        description: "Second second",
+        images: ["link3", "link4"],
+      },
+    },
+  ],
+};
+
+//since writing newObject2.id,newObject2.user_details,newObject2.posts again and again
+//we can simply take(destructure) key names from whole object and then use it anywhere without writing whole object name
+let { id, user_details, posts } = newObject2;
+
+console.log(id); //123
+console.log(user_details); //{ fullname: { firstname: 'Kush', lastname: 'shukla' }, isActive: true }
+console.log(posts); //[{id:1, blogTitle.....},{.......}]
+
+//###################################################################################################################
