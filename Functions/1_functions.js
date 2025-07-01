@@ -40,7 +40,7 @@ let result1 = function sum(num1, num2) {
 //NOTE: spread(...) operator and rest(...) operator are both DIFFERENT!!!!!
 /**
 | Syntax  |         Spread           |                 Rest               |
-| --------| ------------------------ | ---------------------------------- |
+| ------- | ------------------------ | ---------------------------------- |
 | Used in | Function calls, literals | Function parameters, destructuring |
 | Purpose | Expands values           | Gathers values                     |
 | Example | `fn(...arr)`             | `function fn(...args)`             |
@@ -84,14 +84,14 @@ let product1 = {
   price: 1000,
 };
 
-function welcome(details) {
+function displayProduct(details) {
   // NOTE we will use details for accessing object key-value pairs because this "details" function can have different objects as their value not just specific "product" only. Hence, if we use this function to store other objects like product1,product2 etc . we dont have to access it again and again like product1.name,product2.name etc we will just keep it as details.name.
   // We just have to make sure the "key" name is same.
   return `Product: ${details.name}, Price: ${details.price} `;
 }
 
-console.log(welcome(product)); //Product: Mobile, Price: 12000
-console.log(welcome(product1)); //Product: Earphones, Price: 1000
+// console.log(displayProduct(product)); //Product: Mobile, Price: 12000
+// console.log(displayProduct(product1)); //Product: Earphones, Price: 1000
 
 //Hence, by using a single function with single object calling we can access multiple object key-value pairs
 //##########################################################################################################
