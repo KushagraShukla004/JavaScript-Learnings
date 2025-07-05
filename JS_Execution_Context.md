@@ -42,7 +42,7 @@ let result2 = sum(2, 3);
 
 - **Phase-2 :** **Memory Phase** (where all variables are allocated in the memory)
 
-  - all the variables are stored as undefined like (Memory Phase)[images/EC.png]
+  - all the variables are stored as undefined like ![Memory Phase](images/EC.png)
 
 - **Phase-3:** **Execution Phase** (where all the execution happens)
-  - (Image)[images/ExecutionPhase.png]
+  - ![Alt text](images/ExecutionPhase.png)
