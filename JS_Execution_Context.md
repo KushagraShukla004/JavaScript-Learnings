@@ -52,7 +52,6 @@ let result2 = sum(2, 3);
 
 - **Phase-2 :** **Memory Phase** (where all variables are allocated in the memory)
 
-<<<<<<< HEAD
 - all the variables are stored as undefined like
 
   ![Memory Phase](images/EC.png)
@@ -72,7 +71,7 @@ let result2 = sum(2, 3);
   - **Once the EP is completed it gets DELETED! and the `total` value is stored in Global Phase**
 
   ![Deleted](images/EP.png)
-=======
+
   - all the variables are stored as undefined like
 
     ![Memory Phase](images/EC.png)
@@ -80,4 +79,3 @@ let result2 = sum(2, 3);
 - **Phase-3:** **Execution Phase** (where all the execution happens)
 
   ![Alt text](images/ExecutionPhase.png)
->>>>>>> 4ff4648661b52a7b961a728498d281d0e6937dcf
