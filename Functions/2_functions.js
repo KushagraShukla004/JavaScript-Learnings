@@ -64,3 +64,5 @@ let apiResult2 = () => ({
 });
 
 console.log(apiResult2()); //{ user: 'Kush' }
+
+//end
