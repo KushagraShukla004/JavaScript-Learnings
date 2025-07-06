@@ -1,6 +1,7 @@
 // Arrow functions
 
 // () => {}; // arrow functions
+//Arrow functions were added in ES6 (2015) to make callback syntax cleaner and avoid common issues with this.
 
 //Example:
 
@@ -9,7 +10,7 @@ const user = {
   price: 999,
 
   welcome: function () {
-    //this keyword refers to the currentcontext inside the scope of the function or object
+    //this keyword refers to the current context inside the scope of the function or object
     console.log(`${this.username}, welcome to website`);
     // console.log("this:", this);//this: { username: 'Kush', price: 999, welcome: [Function: welcome] }
   },
