@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create New Element using JS & DOM</title>
+  </head>
+  <body style="background-color: black; color: white"></body>
+  <script>
+    // //create an element using .createElement
+    // let div = document.createElement("div");
+    // console.log(div); //<div></div>
+    // div.className = "element"; //<div class="element"></div>
+    // div.setAttribute("class", "element newEl"); //<div class="element newEl"></div>
+
+    // div.style.color = "black";
+    // div.style.backgroundColor = "aqua";
+    // div.style.fontSize = "20px";
+    // div.style.padding = "10px";
+    // div.style.borderRadius = "20px";
+    // div.innerText = "New Element using JS";
+
+    // /*
+    // -> after doing all this the element will still not show anything in the page (only on console.log because we logging(div))
+    // -> because it is stored in memory rather than DOM tree itself
+    // -> in order to "display" the created div in page we need to "append" the element in DOM
+    // -> and since our parent element is <body> and we need to add our element inside <body> hence, we write body.appendChild()
+    // */
+    // document.body.appendChild(div);
+
+    // We can "pack" this whole code into a re-usable function and add parameters , arguments for dynamic insertion of class,text,styles etc
+
+    function newElement(elName, attribute, attriValue, styleType, styleVal, textVal) {
+      let el = document.createElement(elName);
+      el.setAttribute(attribute, attriValue);
+      console.log(el);
+      // styleArr.forEach((styles) => {
+      //   el.style.styles = styleVal;
+      // });
+
+      if (styleType) el.style.styleType = styleVal;
+
+      el.innerText = textVal;
+
+      document.body.appendChild(el);
+    }
+
+    newElement("div", "class", "new", "color", "#fff", "New Element Text Val");
+  </script>
+</html>

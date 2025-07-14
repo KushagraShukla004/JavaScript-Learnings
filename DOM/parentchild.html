@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Parent-child relation</title>
+  </head>
+  <body style="background-color: black; color: white">
+    <div class="parent">
+      <div class="day">Monday</div>
+      <div class="day">Tuesday</div>
+      <div class="day">Wednesday</div>
+      <div class="day">Thursday</div>
+      <div class="day">Friday</div>
+      <div class="day">Saturday</div>
+    </div>
+  </body>
+  <script>
+    let parent = document.querySelector(".parent");
+    // console.log("parent: ", parent);
+    // console.log("children: ", parent.children); //HTMLCollection(6) [div.day, div.day, div.day, div.day, div.day, div.day]
+
+    //HTMLCollection does'nt have any iteration method hence, we can not use forEach but since it is array-like we can still use for-loop
+
+    // for (let i = 0; i < parent.children.length; i++) {
+    //     console.log(parent.children[i]);
+    //     console.log(`parent.children[${i}].innerHTML = ${parent.children[i].innerHTML}`);
+    // }
+
+    //to select First child of a parent element
+    // console.log(
+    //   `parent.firstElementChild.innerHTML = ${parent.firstElementChild.innerHTML}`
+    // );
+
+    //to select Last child of a parent element
+    // console.log(
+    //   `parent.lastElementChild.innerHTML = ${parent.lastElementChild.innerHTML}`
+    // );
+
+    // ##########################################################################################
+    //IMPORTANT
+    //same can be done by querySelector
+    // console.log(
+    //   `first element using querySelector (using string interpolation) = ${document.querySelector(
+    //     ".day"
+    //   )}`
+    // ); //[object HTMLDivElement]
+    // console.log(
+    //   "first element using querySelector (using normal (,) ) = ",
+    //   document.querySelector(".day")
+    // ); //div.day object
+
+    //hence, we now know string interpolation converts the result into string DT even objects
+    // ################################################################################################
+
+    console.log("parent.childNodes", parent.childNodes); //NodeList(13) [text, div.day, text, div.day, text, div.day, text, div.day, text, div.day, text, div.day, text]
+    //HERE , text means the line brake(pretty formatting) we gave after div.parent for div.day
+
+    let child = document.querySelector(".day");
+    console.log("child to parent using .parentElement: ", child.parentElement);
+  </script>
+</html>

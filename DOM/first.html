@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation - First</title>
+    <style>
+      body {
+        background-color: rgb(27, 27, 27);
+        color: white;
+      }
+      .accordian {
+        background-color: #8c8c8c;
+        color: #000000;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        font-weight: bolder;
+        transition: 0.4s;
+      }
+
+      .active,
+      .accordian:hover {
+        background-color: #ddd;
+      }
+
+      .panel {
+        padding: 0 18px;
+        color: black;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="title" class="heading">
+      DOM Manipulation <span style="display: none">hidden text</span>
+    </h1>
+    <h1 id="title" class="heading">
+      DOM Manipulation2
+    </h1>
+    <h2 id="title" class="heading">
+     Lorem ipsum dolor sit
+    </h2>
+
+    <button id="accord1" class="accordian">Accessing the Heading</button>
+    <div class="panel">
+      <p>
+        We can access this heading using the "document" object. Inside the "document"
+        object, we have all the methods to do DOM Manipulation like ".getElementById()",
+        "innerHTML", etc.
+      </p>
+    </div>
+
+    <button class="accordian">getElementById('title')</button>
+    <div class="panel">
+      <p>
+        If we do: <code>document.getElementById('title')</code>, we will get the whole h1
+        tag.
+      </p>
+    </div>
+
+    <button class="accordian">getElementById('title').id</button>
+    <div class="panel">
+      <p>
+        If we do: <code>document.getElementById('title').id</code>, we will get the id in
+        return.
+      </p>
+    </div>
+
+    <button class="accordian">Class vs. className</button>
+    <div class="panel">
+      <ul>
+        <li>
+          <p>
+            If we do: <code>document.getElementById('title').class</code>, we will get
+            <code>undefined</code> (IMPORTANT).
+          </p>
+        </li>
+        <li>
+          <p>
+            We have to use:
+            <code>document.getElementById('title').className</code> to get 'heading' name
+            of class. DOM automatically converts 'class' to 'className' when serving our
+            code to the browser. This is why when we code in React (we use .js) files, JS
+            needs "className" not "class".
+          </p>
+        </li>
+      </ul>
+    </div>
+    <button class="accordian">setAttribute('attrName','attrValue')</button>
+    <div class="panel">
+      <ul>
+        <li>
+          <p>
+            we can use : <code>setAttribute()</code> , to set an attribute to the selected
+            element.
+          </p>
+          <p>For Example:</p>
+          <br />
+          <code>document.getElementById('title').setAttribute('class','test')</code>
+          <code>
+            <pre>&lt;h1 id="title" class="heading"&gt;DOM Manipulation&lt;/h1&gt;</pre>
+          </code>
+          to
+          <code>
+            <pre> &lt;h1 id="title" class="test"&gt;DOM Manipulation&lt;/h1&gt; </pre>
+          </code>
+        </li>
+        <li>
+          <h3>(Important)</h3>
+          <p>we can see that it replces the class with new name</p>
+        </li>
+        <li>
+          <p>
+            Hence, in order to just add and not replace. WE NEED to write the previous
+            className as well
+          </p>
+        </li>
+        <li>
+          like: document.getElementById('title').setAttribute('class','test heading')
+        </li>
+      </ul>
+    </div>
+    <button class="accordian">.style object</button>
+    <div class="panel">
+      you can add style to an html tag by:
+      <ol id="style" >
+        <li>
+          Selecting the tag you want to add styles to by using
+          <code>document.getElementById('accord1')</code>
+        </li>
+        <li>Adding <code>.style</code> object to that</li>
+        <p>
+          u will get something like this:
+          <code>
+            CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '',
+            alignItems: '', alignSelf: '', …}
+          </code>
+        </p>
+        <p>
+          it is "style" object. Inside which it contains various css style methods which
+          can be called (by using ".")
+        </p>
+        <li>
+          Example :
+          <code>document.getElementById('accord1').style.backgroundColor = 'green'</code>'
+        </li>
+      </ol>
+    </div>
+    <button class="accordian">textContent vs innerText vs innerHTML</button>
+    <div class="panel">
+      <p>
+        <pre>
+title.textContent
+'\n      DOM Manipulation hidden text\n    '
+
+title.innerText
+'DOM Manipulation'
+
+title.innerHTML
+'\n      DOM Manipulation &lt;span style="display: none"&gt;hidden text&lt;/span&gt;\n    '
+        </pre>
+      </p>
+      <p>
+        When to Use:
+      </p>
+      <p>
+        <span>
+          innerHTML:
+        </span>
+          When intentionally inserting HTML elements.
+          Always sanitize user input to prevent XSS.
+        </p>
+        <p>
+          <span>
+            textContent:
+          </span>
+          For reading/updating plain text content (safer/faster).
+          Preserving original formatting (e.g., code snippets).
+        </p>
+        <p>
+          <span>
+            innerText:
+          </span>
+          When needing visible text only (e.g., copy/paste human-readable content).
+          Avoid in performance-critical loops (due to reflow).
+        </p>
+    </div>
+    <button class="accordian">document.querySelector</button>
+    <div class="panel">
+      <p>
+        document.querySelectorAll('h1')
+      </p>
+      <p>
+        NodeList(2)[h1#title.heading, h1#title.heading]0: h1#title.heading1: h1#title.headinglength: 2[[Prototype]]: NodeList
+      </p>
+      <p>document.querySelector('#title')
+        h1 id="title" class="heading"​…​/h1</p>
+      <p>
+        document.querySelector('.title')
+      null
+      </p> 
+    </div>
+    <button class="accordian">NodeList vs HTML Collection</button>
+    <div class="panel">
+      <p>
+        
+      </p>
+    </div>
+    <script>
+      let spans=document.querySelectorAll('span')
+
+      spans.forEach((span)=>{
+        span.style.fontWeight = 700
+      })
+
+      let acc = document.getElementsByClassName("accordian");
+      let i;
+
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var panel = this.nextElementSibling;
+          if (panel.style.maxHeight) {
+            panel.style.maxHeight = null;
+          } else {
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
