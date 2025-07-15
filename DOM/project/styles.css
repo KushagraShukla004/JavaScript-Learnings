@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 100px auto 100px;
+  width: 80%;
+  text-align: center;
+}
+
+span {
+  display: block;
+  /* By default, span elements are inline. This makes each span take up the full width of its parent and forces each span to appear on a new line. */
+  margin-top: 20px;
+}
+
+.colorButton {
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  display: inline-block;
+  /* Allows the elements to be formatted with a width and height (like block elements), but they flow next to each other on the same line (like inline elements). */
+}
+
+#dark {
+  background-color: #212121;
+}
+#light {
+  background-color: #ffe4c4;
+}
+#aqua {
+  background-color: #00ffff;
+}
+#purple {
+  background-color: #8a2be2;
+}
