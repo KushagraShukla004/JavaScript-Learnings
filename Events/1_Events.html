@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#319197" />
+    <title>Events!</title>
+  </head>
+  <body style="background-color: #212121; color: aliceblue; text-align: center">
+    <h1>Events</h1>
+    <ul
+      id="images"
+      style="list-style: none; display: flex; gap: 5px; justify-content: center"
+    >
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1693812425241-406faa180512?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGZyZWUlMjBpbWFnZXN8ZW58MHwwfDB8fHww"
+          alt="unsplash"
+          id="photo1"
+          width="500px"
+          height="300px"
+        />
+        <a href="https://www.google.com/" id="google">Google</a>
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1504672281656-e4981d70414b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="unsplash"
+          id="photo2"
+          width="300px"
+          height="300px"
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="unsplash"
+          id="photo3"
+          width="300px"
+          height="300px"
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fDRrJTIwd2FsbHBhcGVyfGVufDB8MHwwfHx8MA%3D%3D"
+          alt="unsplash"
+          id="photo4"
+          width="300px"
+          height="300px"
+        />
+      </li>
+    </ul>
+  </body>
+  <script>
+    // let photo = (document.getElementById("photo1").onclick = (event) => {
+    //   alert("Clicked photo1");
+    // });
+
+    // document.getElementById("photo1").addEventListener(
+    //   "click",
+    //   () => {
+    //     alert("Photo1");
+    //   },
+    //   false
+    // );
+
+    // document.getElementById("photo1").addEventListener("click", (event) => {
+    //   console.log(event);
+    // });
+    //learn about event abject
+    // properties like timestamp,target,type,defaulPrevented,toElement,srcElement,currentTarget
+    //clientX,clientY,screenX,screenY
+    //altKey,ctrlKey,shiftKey,keyCode
+
+    // ----------------------------------------------------------------------------------------
+
+    // document.getElementById("photo1").addEventListener("click", (event) => {
+    //   console.log(event);
+    // },false);
+    /*
+    this third parameter is used to track propogation of an event 
+    there are two types of porpogation:
+    1. bubbling(false)(default): bubbling means event gets tracked from down to up in the NodeTree
+    2. capturing(true): means tracking event from top to bottom.
+    */
+    //Example
+
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   (event) => {
+    //     console.log("clicked ul with id 'images'");
+    //   },
+    //   false
+    // );
+    // document.getElementById("photo1").addEventListener(
+    //   "click",
+    //   (event) => {
+    //     console.log("clicked li inside ul with id 'photo1'");
+    //   },
+    //   false
+    // );
+    //since its false then it will do bubbling hence
+    //log:
+    /*
+    clicked li inside ul with id 'photo1'
+    clicked ul with id 'images'
+    */
+    //hence, first came the image we clicked then its parent element i.e., ul
+
+    //-------------------------------------------------------------------------
+    //If it was true(capturing)
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   (event) => {
+    //     console.log("clicked ul with id 'images'");
+    //   },
+    //   true
+    // );
+    // document.getElementById("photo1").addEventListener(
+    //   "click",
+    //   (event) => {
+    //     console.log("clicked li inside ul with id 'photo1'");
+    //   },
+    //   true
+    // );
+    //log:
+    /*
+    clicked ul with id 'images'
+    clicked li inside ul with id 'photo1'
+    */
+    //hence,eventhough we clicked the image first came its parent element i.e., ul then image id
+
+    // ------------------------------------------------------------------------------------------
+    //if you want to stop propogation you can use 'event' object property
+
+    // document.getElementById("images").addEventListener(
+    //   "click",
+    //   (event) => {
+    //     console.log("clicked ul with id 'images'");
+    //   },
+    //   false
+    // );
+    // document.getElementById("photo1").addEventListener(
+    //   "click",
+    //   (event) => {
+    //     console.log("clicked li inside ul with id 'photo1'");
+    //     event.stopPropagation();
+    //   },
+    //   false
+    // );
+
+    //only "clicked li inside ul with id 'photo1'" this logged
+
+    //=============================================================
+
+    document.getElementById("google").addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log("Google Clicked");
+    });
+  </script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events</title>
+  </head>
+  <body style="background-color: #212121; color: aliceblue; text-align: center">
+    <h1>Events</h1>
+    <ul
+      id="images"
+      style="list-style: none; display: flex; gap: 5px; justify-content: center"
+    >
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1693812425241-406faa180512?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzl8fGZyZWUlMjBpbWFnZXN8ZW58MHwwfDB8fHww"
+          alt="unsplash"
+          id="photo1"
+          width="500px"
+          height="300px"
+        />
+      </li>
+      <a href="https://www.google.com/" id="google">Google</a>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1504672281656-e4981d70414b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="unsplash"
+          id="photo2"
+          width="300px"
+          height="300px"
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt="unsplash"
+          id="photo3"
+          width="300px"
+          height="300px"
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fDRrJTIwd2FsbHBhcGVyfGVufDB8MHwwfHx8MA%3D%3D"
+          alt="unsplash"
+          id="photo4"
+          width="300px"
+          height="300px"
+        />
+      </li>
+    </ul>
+  </body>
+  <script>
+    let click = document.querySelector("#images").addEventListener(
+      "click",
+      (e) => {
+        // console.log("e: ", e);
+        // console.log("e.target: ", e.target);
+        // console.log("e.target.id: ", e.target.id);
+        // console.log("e.target.parentNode: ", e.target.parentNode); //<li></li>
+        console.log(e.target.tagName); //li(if clicked in an image)
+
+        if (e.target.tagName === "IMG") {
+          let liNode = e.target.parentNode;
+          liNode.remove();
+        }
+
+        //this prevents the link to ignore any default behaviors like redirecting the page to the link
+        if (e.target.tagName === "A") {
+          e.preventDefault();
+        }
+      },
+      false
+    );
+  </script>
+</html>

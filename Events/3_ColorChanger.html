@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Changer</title>
+  </head>
+  <body>
+    <h1>Color Changer</h1>
+
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="refresh" onclick="window.location.reload()">Refresh</button>
+  </body>
+  <script>
+    /*setTimeout() : setTimeout(callback, delay, arg1, arg2, ...);
+      setTimeout schedules a one-time execution of a function after a specified delay (in milliseconds).It only runs once.
+        
+      Imagine setting an alarm to ring once after 5 seconds.    
+    */
+
+    // console.log("Start");
+
+    // setTimeout(() => {
+    //   console.log("Executed after 2 seconds");
+    // }, 2000);
+
+    // console.log("End");
+
+    /*
+    Start
+    End
+    Executed after 2 seconds
+    */
+    //========================================================================================================
+
+    /*
+    setInterval repeatedly executes a function at every given time interval (in milliseconds).
+    It continues until you stop it manually using clearInterval.
+    */
+
+    // let count = 0;
+    // const intervalId = setInterval(() => {
+    //   count++;
+    //   console.log("Repeating every 1 sec:", count);
+    //   if (count === 5) clearInterval(intervalId);
+    // }, 1000);
+
+    /*
+    Repeating every 1 sec: 1
+    Repeating every 1 sec: 2
+    Repeating every 1 sec: 3
+    Repeating every 1 sec: 4
+    Repeating every 1 sec: 5
+    */
+
+    //======================================================================================================
+
+    let body = document.querySelector("body");
+    let startButton = document.querySelector("#start");
+    let stopButton = document.querySelector("#stop");
+    // console.log(startButton.parentNode); //You want to access any parent node (element, comment, text, etc.)
+    // console.log(startButton.parentElement); //You only care about HTML elements and want to avoid null for non-elements
+
+    //Using RGB values
+    // function getRandomRGB() {
+    //   const r = Math.floor(Math.random() * 256); // 0–255
+    //   const g = Math.floor(Math.random() * 256);
+    //   const b = Math.floor(Math.random() * 256);
+    //   return `rgb(${r}, ${g}, ${b})`;
+    // }
+
+    //Using Hex code
+    function getRandomHEX() {
+      const hex = "0123456789ABCDEF";
+      let color = "#";
+      // why i < 6 because hex code is of #012345 (6) values
+      for (let i = 0; i < 6; i++) {
+        color += hex[Math.floor(Math.random() * 16)]; //*16 because range of hex code is 0-F(decimal) i.e,0-16
+      }
+      return color;
+    }
+
+    let colorInterval;
+
+    startButton.addEventListener(
+      "click",
+      () => {
+        /*
+          Problem: Multiple setInterval timers stacking
+              There’s no check if colorInterval already exists.
+              So each click adds another timer — they all run independently every 700ms!
+              Hence, the color changes faster and faster with each click.
+          
+          Problem: Stop doesn't work after multiple clicks
+              it only clears the latest one (the last setInterval assigned to colorInterval).
+              The older intervals (from previous clicks) are still running — and you lost their IDs.
+        */
+
+        if (colorInterval) return; // Prevent multiple intervals! problem solved
+
+        //changeColor function is initialized before declaration and this technique is called Hoisting
+        colorInterval = setInterval(changeColor, 700);
+        // console.log("startButton colorInterval: ", colorInterval); // 3 , the browser automatically assigns ID to the interval right now it was 3
+        function changeColor() {
+          body.style.transition = "background-color 0.7s ease-in-out";
+          body.style.backgroundColor = getRandomHEX();
+        }
+      },
+      false
+    );
+
+    stopButton.addEventListener("click", () => {
+      clearInterval(colorInterval);
+      colorInterval = null;
+      console.log("stopButton colorInterval: ", colorInterval);
+    });
+  </script>
+</html>
