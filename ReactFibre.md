@@ -79,6 +79,8 @@ Other key features include the ability to pause, abort, or reuse work as new upd
 
 > It’s React’s superpower for making declarative code **fast**.
 
+---
+
 ### **Fiber in React: Core Concept Summary**
 
 #### **1. What is a Fiber?**
