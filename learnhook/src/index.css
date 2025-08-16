@@ -35,3 +35,9 @@
   cursor: pointer;
   border: 2px solid white;
 }
+
+/* @layer components {
+  .currency-bg {
+    @apply bg-[url(../../assets/currency.jpg)] h-screen;
+  }
+} */

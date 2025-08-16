@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BgChanger from "./BgChanger";
-import ColorChangeBar from "../../components/ColorChangeBar";
+import { ColorChangeBar } from "../../components";
 import PasswordGen from "../PasswordGenerator/passwordGen";
 
 const BgChangerWrapper = () => {

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Card } from "../../components";
 
 const PasswordGen = () => {
   const [password, setPassword] = useState("");
@@ -41,7 +42,7 @@ const PasswordGen = () => {
 
   return (
     <div className="w-full h-[50%] flex flex-col items-center justify-center p-6">
-      <div className="bg-white/20 backdrop-blur-2xl rounded-3xl shadow-lg border border-white/30 w-full max-w-xl p-8 flex flex-col items-center gap-6 transition-all duration-300 hover:shadow-2xl">
+      <Card>
         <h1 className="text-5xl font-bold text-white text-center">
           🔐 Password Generator
         </h1>
@@ -116,7 +117,7 @@ const PasswordGen = () => {
         {/* <button className="mt-4 w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white py-3 rounded-xl text-lg font-semibold hover:scale-105 transition-transform">
             Generate Password
           </button> */}
-      </div>
+      </Card>
     </div>
   );
 };
